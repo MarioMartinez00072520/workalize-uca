@@ -27,7 +27,7 @@ middlewares.authentication = async (req, res, next) => {
         if(!tokenObject) return res.status(401).json({error: "No autorizado"});
 
         const { userId } = tokenObject;
-        debug(userId);
+        debug(userId + "attempted to login");
         
         //Paso 3: Obtener al usuario
 

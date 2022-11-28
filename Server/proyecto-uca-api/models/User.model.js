@@ -29,7 +29,10 @@ const userSchema = new Schema(
             type: String,
             trim: true,
         }
-        ,
+        , organization: {
+            type: String,
+            default: "UCA El Salvador"
+        },
         hashedPassword: {
             type: String,
             required: true

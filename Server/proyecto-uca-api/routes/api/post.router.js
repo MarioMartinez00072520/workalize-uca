@@ -25,7 +25,7 @@ router.get("/:keyword",
     postController.findPostsByKeyword);
 
 // Cosas del usuario
-// Desplegar todos los posts de proyectos que he guardado EXTRA
+// Desplegar todos los posts de proyectos que he guardado
 router.get("/saved", authentication, postController.getOwnSavedPosts );
 
 // Dar o quitar Like al post de un proyecto

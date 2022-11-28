@@ -27,7 +27,7 @@ const PostSchema = new Schema({
     trim: true,
     default: "Not specified. "
   },
-  schedule: {
+  location: {
     type: String,
     default: "Not specified. "
   },

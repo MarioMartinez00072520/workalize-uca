@@ -5,7 +5,7 @@ const authController = require("../../controllers/auth.controller");
 const runValidations = require("../../validators/index.middleware");
 const { registerValidator } = require("../../validators/auth.validators");
 
-const { authentication } = require("../../middlewares/auth.middleware")
+const { authentication, authorization } = require("../../middlewares/auth.middleware")
 
 router.post("/signup",
     registerValidator,
@@ -16,5 +16,7 @@ router.post("/signup",
 router.post("/signin", authController.login);
 
 router.get("/whoami", authentication, authController.whoami);
+
+router.patch("/preferences", authentication, authController.updatePreferences);
 
 module.exports = router;
