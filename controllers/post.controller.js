@@ -263,4 +263,27 @@ controller.toggleSavedPost = async (req, res) => {
   }
 }
 
+controller.updatePost = async (req, res) => {
+  /* try {
+    
+    const { area, availability, location, salary } = req.body;
+    const { _id } = req.user;
+
+    const user = await User.findById(_id);
+
+    user.preferences.area = area || "No preference. ";
+    user.preferences.availability = availability || "No preference. ";
+    user.preferences.location = location || "No preference. ";
+    user.preferences.salary = salary || "No preference. ";
+
+    await user.save();
+
+    return res.status(200).json({ message: "Los cambios han sido exitosos. "})
+
+  } catch (error) {
+    debug(error);
+    return res.status(500).json({ error: "Error inesperado del servidor." })
+  } */
+}
+
 module.exports = controller;
