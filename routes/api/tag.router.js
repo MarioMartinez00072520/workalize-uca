@@ -12,7 +12,7 @@ router.post("/",
     authentication,
     authorization(ROLES.ADMIN),
     /* tagValidators.createTagValidator, */
-    runValidations,
+    /* runValidations, */
     tagController.create
 );
 

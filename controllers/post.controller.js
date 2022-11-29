@@ -80,6 +80,9 @@ controller.findPostsByKeyword = async (req, res) => {
           { title:        { $regex: keyword, $options: 'i'}},
           { description:  { $regex: keyword, $options: 'i'}},
           { employer:     { $regex: keyword, $options: 'i'}},
+          { requirements: { $regex: keyword, $options: 'i'}},
+          { level: { $regex: keyword, $options: 'i'}},
+          { location: { $regex: keyword, $options: 'i'}},
           { requirements: { $regex: keyword, $options: 'i'}}
       ]}]
     })
@@ -232,7 +235,7 @@ controller.togglePostLike = async (req, res) => {
   }
 }
 
-controller.toggleSavedPost = async (req, res) => {
+/* controller.toggleSavedPost = async (req, res) => {
   try {
     const { identifier: postId } = req.params;
 
@@ -263,7 +266,7 @@ controller.toggleSavedPost = async (req, res) => {
     debug({ error });
     return res.status(500).json({ error: "Error interno de servidor." });
   }
-}
+} */
 
 controller.toggleTaggedPost = async (req,res) => {
   try {
