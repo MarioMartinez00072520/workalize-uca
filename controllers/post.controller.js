@@ -235,7 +235,7 @@ controller.togglePostLike = async (req, res) => {
   }
 }
 
-/* controller.toggleSavedPost = async (req, res) => {
+controller.toggleSavedPost = async (req, res) => {
   try {
     const { identifier: postId } = req.params;
 
@@ -266,9 +266,9 @@ controller.togglePostLike = async (req, res) => {
     debug({ error });
     return res.status(500).json({ error: "Error interno de servidor." });
   }
-} */
+}
 
-controller.toggleTaggedPost = async (req,res) => {
+/* controller.toggleTaggedPost = async (req,res) => {
   try {
     const { name: tagId, identifier: postId } = req.params;
 
@@ -300,7 +300,7 @@ controller.toggleTaggedPost = async (req,res) => {
     debug({ error });
     return res.status(500).json({ error: "Error interno de servidor." });
   }
-}
+} */
 
 controller.updatePost = async (req, res) => {
   /* try {
