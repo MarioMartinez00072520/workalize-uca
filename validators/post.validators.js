@@ -16,11 +16,11 @@ validators.findPostByIdValidator = [
   param("identifier")
     .notEmpty().withMessage("El id no debe de ir vacío")
     .isMongoId().withMessage("El id debe de ser de mongo")
-]
+];
 
 validators.findPostByKeywordValidator = [
   param("keyword")
     .notEmpty().withMessage("Tu busqueda no puede estar vacia. ")
-]
+];
 
 module.exports = validators;

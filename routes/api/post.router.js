@@ -19,7 +19,7 @@ const { authentication, authorization } =  require("../../middlewares/auth.middl
 //Esto es para cuando entras a la pagina de search, despliega todos los posts de proyectos visibles
 router.get("/", postController.findAll);
 
-router.get("/:keyword",
+router.get("/keyword/:keyword",
     postValidators.findPostByKeywordValidator,
     runValidations,
     postController.findPostsByKeyword);
@@ -65,7 +65,8 @@ router.get("/user/:identifier",
 router.get("/:identifier",
     postValidators.findPostByIdValidator,
     runValidations,
-    postController.findOneById);
+    postController.findOneById
+);
 
 // url/post/6382ac5cf5536d132331a62e
 

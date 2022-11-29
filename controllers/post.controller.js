@@ -83,14 +83,15 @@ controller.findPostsByKeyword = async (req, res) => {
       ]}]
     })
 
-    if(!posts) return res.status(400).json({error: "No hay posts que se asemejen a tu busqueda"});
+    if(!posts){
+      return res.status(404).json({error: "No hay posts que se asemejen a tu busqueda"})
+    };
 
     return res.status(200).json({ posts });
   } catch (error) {
     debug({ error });
     return res.status(500).json({ error: "Error interno de servidor." });
   }
-
 }
 
 controller.findPostByFilter = async (req, res) => {
@@ -136,7 +137,7 @@ controller.findOneById = async (req, res) => {
     if (!post) {
       return res.status(404).json({ error: "Post no encontrado" });
     }
-
+    
     return res.status(200).json(post);
   } catch (error) {
     debug({ error });
