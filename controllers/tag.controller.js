@@ -6,19 +6,19 @@ const controller = {};
 
 controller.create = async (req,res) => {
     try {
-        const {name} = req.body;
+        const { name } = req.body;
         const {_id: userId} = req.user;
 
         const _tag = await tag.findOne({ name: name });
 
         if(_tag){
-            return res.status(409).json({error: "Este usuario ya existe en la base de datos."})
+            return res.status(409).json({error: "Esta etiqueta ya existe en la base de datos."})
         }
         
         const tag = new Tag({
             name: name,
             user: userId
-        })
+        });
 
         const newTag = await tag.save();
 
