@@ -11,7 +11,7 @@ const { authentication, authorization } =  require("../../middlewares/auth.middl
 router.post("/",
     authentication,
     authorization(ROLES.ADMIN),
-    tagValidators.createTagValidator,
+    /* tagValidators.createTagValidator, */
     runValidations,
     tagController.create
 );
