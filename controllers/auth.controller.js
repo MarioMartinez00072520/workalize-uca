@@ -75,9 +75,10 @@ controller.login = async (req, res) => {
 
 controller.whoami = async (req, res) => {
   try {
-    const { _id,  username, email, roles } = req.user;
+    const { _id, email, name,  username, carnet, organization, preferences, roles } = req.user;
 
-    return res.status(200).json({ _id, username, email, roles});
+    return res.status(200).json({ _id, email, name,  username, carnet, organization, preferences, roles });
+
   } catch (error) {
     debug(error);
     return res.status(500).json({ error: "Error inesperado del servidor." })
