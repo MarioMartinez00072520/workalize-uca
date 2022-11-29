@@ -31,10 +31,10 @@ const PostSchema = new Schema({
     type: String,
     default: "Not specified. "
   },
-  tags: {
+  /* tags: {
     type: [String],
     default: []
-  },
+  }, */
   hidden: {
     type: Boolean,
     default: false

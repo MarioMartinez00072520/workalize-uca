@@ -48,13 +48,13 @@ router.patch("/save/:identifier",
     postController.toggleSavedPost
 );
 
-router.patch("/tag/:name/:identifier",
+/* router.patch("/tag/:name/:identifier",
     authentication,
     authorization(ROLES.ADMIN),
     postValidators.findPostByIdValidator,
     runValidations,
     postController.toggleTaggedPost
-);
+); */
 
 // ruta para buscar posts de proyecto insertados por trabajadores
 // ESTE NO ES BUSCAR POR CONTRATISTA
