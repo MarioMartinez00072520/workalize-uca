@@ -1,5 +1,6 @@
 const Post = require("../models/Post.model");
-const User = require("../models/User.model")
+const User = require("../models/User.model");
+const Tag = require("../models/Tag.model")
 const debug = require("debug")("app:post-controller");
 
 const controller = {};
@@ -257,6 +258,40 @@ controller.toggleSavedPost = async (req, res) => {
     await user.save();
 
     return res.status(200).json({ message: "Post guardado"})
+
+  } catch (error) {
+    debug({ error });
+    return res.status(500).json({ error: "Error interno de servidor." });
+  }
+}
+
+controller.toggleTaggedPost = async (req,res) => {
+  try {
+    const { name: tagId, identifier: postId } = req.params;
+
+    //Paso 1: Buscar el post(id, hidden: false)
+    const post = await Post.findOne({ _id: postId, hidden: false });
+
+    if(!post) return res.status(404).json({ error: "Post no encontrado." });
+
+    const tag = await Tag.findOne({ _id: tagId})
+
+    if(!tag) return res.status(404).json({error: "La etiqueta no ha sido encontrada."})
+    //Paso 2: Determinar si debo guardar o quitar
+    const index = tag.taggedPosts.findIndex(_postId => _postId.equals(post._id));
+
+    if(index >= 0){
+      //Quitar de SavedPosts
+      tag.taggedPosts = tag.taggedPosts.filter(_postId => !_postId.equals(post._id));
+
+    } else {
+      //Agregar a SavedPosts
+      tag.taggedPosts = [...tag.taggedPosts, post._id];
+    }
+
+    await tag.save();
+
+    return res.status(200).json({ message: "Post guardado."})
 
   } catch (error) {
     debug({ error });

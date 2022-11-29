@@ -29,7 +29,8 @@ const userSchema = new Schema(
             type: String,
             trim: true,
         }
-        , organization: {
+        ,
+        organization: {
             type: String,
             default: "UCA El Salvador"
         },

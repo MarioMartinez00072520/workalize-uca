@@ -8,7 +8,7 @@ const postController = require("../../controllers/post.controller");
 const postValidators = require("../../validators/post.validators");
 const runValidations = require("../../validators/index.middleware");
 
-const { authentication, authorization } =  require("../../middlewares/auth.middleware")
+const { authentication, authorization } =  require("../../middlewares/auth.middleware");
 
 // Paso1: String de la ruta 
 // Paso2: Autenticacion, Autorizacion
@@ -48,6 +48,13 @@ router.patch("/save/:identifier",
     postController.toggleSavedPost
 );
 
+router.patch("/tag/:name/:identifier",
+    authentication,
+    authorization(ROLES.ADMIN),
+    postValidators.findPostByIdValidator,
+    runValidations,
+    postController.toggleTaggedPost
+);
 
 // ruta para buscar posts de proyecto insertados por trabajadores
 // ESTE NO ES BUSCAR POR CONTRATISTA
