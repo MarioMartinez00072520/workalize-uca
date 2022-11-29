@@ -8,7 +8,7 @@ const controller = {};
 //Create que necesita autenticacion y autorizacion
 controller.create = async (req, res) => {
   try {
-    const { title, description, employer, availability, requirements, level, location} = req.body;
+    const { title, description, employer, availability, contact, requirements, level, location} = req.body;
     const { _id: userId } = req.user;
 
     const post = new Post({
@@ -17,6 +17,7 @@ controller.create = async (req, res) => {
       employer: employer,
       availability: availability,
       requirements: requirements,
+      contact: contact,
       level: level,
       location: location,
       user: userId

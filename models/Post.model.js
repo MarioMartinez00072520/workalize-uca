@@ -12,12 +12,22 @@ const PostSchema = new Schema({
     trim: true,
     required: true,
   },
+  availability: {
+    type: String,
+    trim: true,
+    default: "Not specified. "
+  },
   requirements: {
     type: String,
     trim: true,
     default: "There are no requirements."
   },
   employer: {
+    type: String,
+    trim: true,
+    required: true
+  },
+  contact: {
     type: String,
     trim: true,
     required: true
@@ -31,10 +41,6 @@ const PostSchema = new Schema({
     type: String,
     default: "Not specified. "
   },
-  /* tags: {
-    type: [String],
-    default: []
-  }, */
   hidden: {
     type: Boolean,
     default: false
